@@ -1,7 +1,8 @@
 import { createStackNavigator, createAppContainer, createDrawerNavigator,createSwitchNavigator } from "react-navigation";
 import Posts from '../components/posts'
 import Counter from '../components/counter'
-import Login from '../components/auth/index'
+// import Login from '../components/auth/index'
+import LoginScreen from '../components/auth/loginScreen'
 import Register from '../components/auth/register'
 import Home from '../components/home/home'
 import AuthLoading from '../components/auth/authLoading'
@@ -17,8 +18,10 @@ const Drawer = createDrawerNavigator(
     })
 const authenticationNavigator = createStackNavigator(
     {
-        Login,
+        LoginScreen,
         Register
+    },{
+        headerMode:'none'
     })
 const AppNavigator = createSwitchNavigator(
     {
