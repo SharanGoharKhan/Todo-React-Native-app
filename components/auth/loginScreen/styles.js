@@ -38,6 +38,13 @@ export default {
       paddingTop: 50, 
       justifyContent: 'space-between' 
     },
+    formContainerValidation: {
+      color:'red'
+    },
+    formContainerBoxContainer: {
+      flexDirection:'column'
+    },
+
     formContainerUsernameBox: {
       width: '100%', 
       flexDirection: 'row', 
