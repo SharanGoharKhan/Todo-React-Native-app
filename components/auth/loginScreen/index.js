@@ -5,6 +5,7 @@ import { Text, Button, Icon } from 'native-base';
 import styles from './styles'
 import Validate from 'validate.js'
 import { ValidateLogin } from '../../../store/actions/auth/login'
+import GoogleSignIn from './googleAuth'
 
 const constraints = {
   username,
@@ -67,7 +68,7 @@ class LoginScreen extends React.Component {
     }
     this.props.validateLogin(username, password)
   }
-  
+
   render() {
     return (
       <ImageBackground style={styles.ImageBackground} source={require('../../../assets/background-login.png')}>
@@ -124,10 +125,7 @@ class LoginScreen extends React.Component {
                 <View style={styles.orContainerRight}></View>
               </View>
               <View style={styles.googleAuthContainer}>
-                <Button style={styles.googleAuthContainerButton} block danger>
-                  <Image style={styles.googleAuthContainerImage} source={require('../../../assets/googleAuthImage.png')} />
-                  <Text>Continue with Google</Text>
-                </Button>
+                <GoogleSignIn/>
               </View>
               <View style={styles.formFooterContainer}>
                 <Text style={styles.formFooterForgot}>Forgot password?</Text>
