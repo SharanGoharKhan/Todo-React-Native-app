@@ -29,8 +29,8 @@ class LoginScreen extends React.Component {
     this.state = {
       username: '',
       password: '',
-      usernameError: '',
-      passwordError: ''
+      usernameError: null,
+      passwordError: null
     }
     this.validateEmail = this.validateEmail.bind(this)
     this.validatePassword = this.validatePassword.bind(this)
@@ -114,10 +114,12 @@ class LoginScreen extends React.Component {
               </View>
               <View style={styles.formContainerLoginBox}>
                 <Button
-                  style={styles.formContainerLoginButton}
+                  style={(this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1) ? styles.formContainerLoginButtonDisabled : styles.formContainerLoginButton }
                   block
                   success
-                  onPress={() => { this.validateLogin(this.state.username, this.state.password) }}><Text>Login</Text></Button>
+                  disabed={(this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1) ? true: false}
+                  onPress={() => { this.validateLogin(this.state.username, this.state.password) }}>
+                  <Text>Login</Text></Button>
               </View>
               <View style={styles.orContainer}>
                 <View style={styles.orContainerLeft}></View>

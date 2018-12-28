@@ -89,6 +89,10 @@ export default {
     formContainerLoginButton: {
       width: '100%'
     },
+    formContainerLoginButtonDisabled: {
+      width: '100%',
+      backgroundColor: 'gray'
+    },
     orContainer: {
       width: '100%', 
       flexDirection: 'row', 
