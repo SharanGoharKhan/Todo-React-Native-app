@@ -69,6 +69,15 @@ class LoginScreen extends React.Component {
     this.props.validateLogin(username, password)
   }
 
+  onLoginPressed() {
+    this.validateLogin(this.state.username,this.state.password)
+    if((this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1)) {
+      console.log('errors')
+    } else {
+      this.props.navigation.navigate('Home')
+    }
+  }
+
   render() {
     return (
       <ImageBackground style={styles.ImageBackground} source={require('../../../assets/background-login.png')}>
@@ -118,7 +127,7 @@ class LoginScreen extends React.Component {
                   block
                   success
                   disabed={(this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1) ? true: false}
-                  onPress={() => { this.validateLogin(this.state.username, this.state.password) }}>
+                  onPress={() => { this.onLoginPressed() }}>
                   <Text>Login</Text></Button>
               </View>
               <View style={styles.orContainer}>
