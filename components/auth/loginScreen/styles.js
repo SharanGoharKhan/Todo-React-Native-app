@@ -61,6 +61,7 @@ export default {
       marginRight: 10
     },
     formContainerUsernameInput: {
+      width: '100%',
       fontSize: 18
     },
     formContainerPasswordBox: {
@@ -79,6 +80,7 @@ export default {
       marginRight: 10
     },
     formContainerPasswordInput: {
+      width: '100%',
       fontSize: 18
     },
     formContainerLoginBox: {
