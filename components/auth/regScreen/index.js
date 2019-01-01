@@ -78,7 +78,7 @@ class RegisterScreen extends React.Component {
                             <View style={{ flex: 1 }} >
                                 <View style={styles.formContainer}>
                                     <View style={styles.formContainerUsernameBox}>
-                                        <Icon style={styles.formContainerUsernameIcon} type="FontAwesome" name='user' />
+                                        <Icon style={styles.formContainerUsernameIcon} type="AntDesign" name='user' />
                                         <TextInput style={styles.formContainerUsernameInput}
                                             keyboardType='email-address'
                                             returnKeyType='next'
@@ -86,7 +86,7 @@ class RegisterScreen extends React.Component {
                                     </View>
                                     <View style={styles.formContainerBoxContainer}>
                                         <View style={styles.formContainerUsernameBox}>
-                                            <Icon style={styles.formContainerUsernameIcon} type="MaterialCommunityIcons" name='email' />
+                                            <Icon style={styles.formContainerUsernameIcon} type="AntDesign" name='mail' />
                                             <TextInput style={styles.formContainerUsernameInput}
                                                 keyboardType='email-address'
                                                 returnKeyType='next'
@@ -100,7 +100,7 @@ class RegisterScreen extends React.Component {
                                     </View>
                                     <View style={styles.formContainerBoxContainer}>
                                         <View style={styles.formContainerPasswordBox}>
-                                            <Icon style={styles.formContainerPasswordIcon} type="FontAwesome" name='lock' />
+                                            <Icon style={styles.formContainerPasswordIcon} type="AntDesign" name='lock' />
                                             <TextInput style={styles.formContainerPasswordInput}
                                                 placeholder="Password"
                                                 returnKeyType='next'
@@ -113,7 +113,7 @@ class RegisterScreen extends React.Component {
                                     </View>
                                     <View style={styles.formContainerBoxContainer}>
                                         <View style={styles.formContainerPasswordBox}>
-                                            <Icon style={styles.formContainerPasswordIcon} type="FontAwesome" name='lock' />
+                                            <Icon style={styles.formContainerPasswordIcon} type="AntDesign" name='lock' />
                                             <TextInput style={styles.formContainerPasswordInput}
                                                 placeholder="Confirm Password"
                                                 returnKeyType='next'
