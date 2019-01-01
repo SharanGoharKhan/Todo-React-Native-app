@@ -12,6 +12,7 @@
     "native-base": "^2.10.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-calendars": "^1.21.0",
     "react-navigation": "^3.0.8",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
