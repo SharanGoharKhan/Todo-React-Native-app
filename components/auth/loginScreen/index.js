@@ -70,8 +70,8 @@ class LoginScreen extends React.Component {
   }
 
   onLoginPressed() {
-    this.validateLogin(this.state.username,this.state.password)
-    if((this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1)) {
+    this.validateLogin(this.state.username, this.state.password)
+    if ((this.state.usernameError == null || this.state.usernameError.length > 1) || (this.state.passwordError == null || this.state.passwordError.length > 1)) {
       console.log('errors')
     } else {
       this.props.navigation.navigate('Home')
@@ -115,7 +115,9 @@ class LoginScreen extends React.Component {
                     returnKeyType='done'
                     secureTextEntry={true}
                     onBlur={this.validatePassword}
-                    onChangeText={(value) => { this.setState({ password: value.trim() }) }}
+                    onChangeText={(value) => {
+                      this.setState({ password: value.trim() })
+                    }}
                     secureTextEntry={true}
                     ref={input => { this.passwordInput = input }} />
                 </View>
@@ -123,10 +125,10 @@ class LoginScreen extends React.Component {
               </View>
               <View style={styles.formContainerLoginBox}>
                 <Button
-                  style={(this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1) ? styles.formContainerLoginButtonDisabled : styles.formContainerLoginButton }
+                  style={(this.state.usernameError == null || this.state.usernameError.length > 1) || (this.state.passwordError == null || this.state.passwordError.length > 1) ? styles.formContainerLoginButtonDisabled : styles.formContainerLoginButton}
                   block
                   success
-                  disabed={(this.state.usernameError==null || this.state.usernameError.length>1) || (this.state.passwordError==null || this.state.passwordError.length>1) ? true: false}
+                  disabed={(this.state.usernameError == null || this.state.usernameError.length > 1) || (this.state.passwordError == null || this.state.passwordError.length > 1) ? true : false}
                   onPress={() => { this.onLoginPressed() }}>
                   <Text>Login</Text></Button>
               </View>
@@ -136,12 +138,12 @@ class LoginScreen extends React.Component {
                 <View style={styles.orContainerRight}></View>
               </View>
               <View style={styles.googleAuthContainer}>
-                <GoogleSignIn/>
+                <GoogleSignIn />
               </View>
               <View style={styles.formFooterContainer}>
                 <Text style={styles.formFooterForgot}>Forgot password?</Text>
                 <Text style={styles.formFooterSignUp}
-                onPress={()=> this.props.navigation.navigate('RegisterScreen')}>New here? Sign Up</Text>
+                  onPress={() => this.props.navigation.navigate('RegisterScreen')}>New here? Sign Up</Text>
               </View>
             </View>
           </View>

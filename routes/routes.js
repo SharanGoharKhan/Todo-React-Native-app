@@ -15,6 +15,7 @@ import RegisterScreen from '../components/auth/regScreen'
 import Home from '../components/home/home'
 import AuthLoading from '../ui/authLoading'
 import Maps from '../components/maps/maps'
+import CalendarScreen from '../components/calendar/calendar'
 
 
 const TopBarNavigator = createMaterialTopTabNavigator({
@@ -87,7 +88,8 @@ const Drawer = createDrawerNavigator(
         Posts,
         BottomBarNavigator,
         TopBarNavigator,
-        Maps
+        Maps,
+        CalendarScreen
     },
     {
         initialRouteName: 'Home'
