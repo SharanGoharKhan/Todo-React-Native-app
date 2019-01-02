@@ -7,7 +7,6 @@ import {
 } from "react-navigation"
 import LoginScreen from '../components/auth/loginScreen'
 import RegisterScreen from '../components/auth/regScreen'
-import Home from '../components/home/home'
 import AuthLoading from '../ui/authLoading'
 import MapScreen from '../components/screens/map'
 import Calendar from '../components/screens/calender'
@@ -15,6 +14,7 @@ import Chat from '../components/screens/chat'
 import Charts from '../components/screens/charts'
 import Todos from '../components/screens/todos'
 import SideBar from '../components/screens/sidebar'
+import Home from '../components/screens/home'
 
 
 // const TopBarNavigator = createMaterialTopTabNavigator({
