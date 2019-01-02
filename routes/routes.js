@@ -15,6 +15,8 @@ import Charts from '../components/screens/charts'
 import Todos from '../components/screens/todos'
 import SideBar from '../components/screens/sidebar'
 import Home from '../components/screens/home'
+import ForgotScreen from '../components/auth/forgotScreen'
+import Profile from '../components/screens/profile'
 
 
 // const TopBarNavigator = createMaterialTopTabNavigator({
@@ -87,7 +89,8 @@ const Drawer = createDrawerNavigator(
         Map: { screen: MapScreen },
         Chat: { screen: Chat },
         Charts: { screen: Charts },
-        Todos: { screen: Todos }
+        Todos: { screen: Todos },
+        Profile: { screen: Profile }
     },
     {
         initialRouteName: 'Home',
@@ -99,7 +102,8 @@ const Drawer = createDrawerNavigator(
 const authenticationNavigator = createStackNavigator(
     {
         LoginScreen,
-        RegisterScreen
+        RegisterScreen,
+        ForgotScreen
     }, {
         headerMode: 'none'
     })

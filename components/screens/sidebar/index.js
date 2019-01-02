@@ -26,6 +26,12 @@ const datas = [
         bg: '#C5F442'
     },
     {
+        name: 'Profile',
+        route: 'Profile',
+        icon: 'user',
+        type: 'AntDesign'
+    },
+    {
         name: 'Calendar',
         route: 'Calendar',
         icon: 'md-calendar',
