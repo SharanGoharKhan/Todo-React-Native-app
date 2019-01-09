@@ -18,7 +18,6 @@ import Home from '../components/screens/home'
 import ForgotScreen from '../components/auth/forgotScreen'
 import Profile from '../components/screens/profile'
 
-
 // const TopBarNavigator = createMaterialTopTabNavigator({
 //     LoginScreen,
 //     RegisterScreen

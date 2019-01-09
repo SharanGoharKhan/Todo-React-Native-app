@@ -1,24 +1,15 @@
 import React from 'react';
-import { DrawerActions } from 'react-navigation-drawer';
 import {
     Container,
-    Header,
-    Title,
     Content,
     Text,
-    Button,
-    Icon,
-    Footer,
-    FooterTab,
-    Left,
-    Right,
-    Body
 } from "native-base";
 import styles from "./styles";
 import { View } from 'react-native'
 import { Calendar } from 'react-native-calendars'
 import { connect } from 'react-redux'
 import { setSelectedDate } from '../../../store/actions/calendar/calendar'
+import HeaderView from '../../../ui/header'
 
 class CalendarScreen extends React.Component {
 
@@ -45,20 +36,9 @@ class CalendarScreen extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Header>
-                    <Left>
-                        <Button
-                            transparent
-                            onPress={() => this.props.navigation.dispatch(DrawerActions.toggleDrawer())}
-                        >
-                            <Icon name="ios-menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>Calendar</Title>
-                    </Body>
-                    <Right />
-                </Header>
+                <HeaderView 
+                title='Calendar'
+                navigationObj={this.props.navigation} />
                 <Content padder>
                     <View style={{ marginTop: 50 }}>
                         <Text>{this.state.calenderResult}</Text>

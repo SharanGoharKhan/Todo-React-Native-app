@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style'
 
-import { Image, View } from 'react-native'
+import { Image } from 'react-native'
 import {
     Content,
     Text,
