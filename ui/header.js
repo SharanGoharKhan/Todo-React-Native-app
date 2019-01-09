@@ -9,10 +9,13 @@ import {
     Right,
     Body
 } from "native-base";
+import { StatusBar } from 'react-native'
+
 class HeaderView extends React.Component {
     render() {
         return (
-            <Header>
+            <Header 
+            style={{paddingTop: StatusBar.currentHeight}}>
                 <Left>
                     <Button
                         transparent
