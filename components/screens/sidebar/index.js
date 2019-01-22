@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style'
 
-import { Image, View } from 'react-native'
+import { Image } from 'react-native'
 import {
     Content,
     Text,
@@ -24,6 +24,12 @@ const datas = [
         icon: 'md-home',
         type: 'Ionicons',
         bg: '#C5F442'
+    },
+    {
+        name: 'Profile',
+        route: 'Profile',
+        icon: 'user',
+        type: 'AntDesign'
     },
     {
         name: 'Calendar',

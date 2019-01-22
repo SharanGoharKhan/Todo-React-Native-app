@@ -1,22 +1,14 @@
 import React from 'react';
-import { DrawerActions } from 'react-navigation-drawer';
-import { Constants, MapView, Location, Permissions } from 'expo'
+import { MapView, Location, Permissions } from 'expo'
 import { setLocation } from '../../../store/actions/maps/maps'
 import { View } from 'react-native';
 import {
     Container,
-    Header,
-    Title,
     Content,
     Text,
-    Button,
-    Icon,
-    Footer,
-    FooterTab,
-    Left,
-    Right,
-    Body
+    Button
 } from "native-base";
+import HeaderView from '../../../ui/header'
 import styles from "./styles";
 import { connect } from 'react-redux'
 
@@ -78,20 +70,9 @@ class Maps extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Header>
-                    <Left>
-                        <Button
-                            transparent
-                            onPress={() => this.props.navigation.dispatch(DrawerActions.toggleDrawer())}
-                        >
-                            <Icon name="ios-menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>Map</Title>
-                    </Body>
-                    <Right />
-                </Header>
+                <HeaderView 
+                title='Map'
+                navigationObj={this.props.navigation} />
                 <Content padder>
                     <View style={styles.container}>
                         <MapView
@@ -132,13 +113,6 @@ class Maps extends React.Component {
                             }} />
                     </View>
                 </Content>
-                <Footer>
-                    <FooterTab>
-                        <Button active full>
-                            <Text>Footer</Text>
-                        </Button>
-                    </FooterTab>
-                </Footer>
             </Container>
         );
     }

@@ -7,19 +7,19 @@ import {
 import HeaderView from '../../../ui/header'
 import styles from "./styles";
 
-class Home extends React.Component {
+class Profile extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
                 <HeaderView 
-                title='Home'
-                navigationObj={this.props.navigation}/>
+                title='Profile'
+                navigationObj={this.props.navigation} />
                 <Content padder>
-                    <Text>Hello from Home</Text>
+                    <Text>Hello from Profile</Text>
                 </Content>
             </Container>
         )
     }
 }
 
-export default Home;
+export default Profile;

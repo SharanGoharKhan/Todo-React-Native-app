@@ -141,7 +141,8 @@ class LoginScreen extends React.Component {
                 <GoogleSignIn />
               </View>
               <View style={styles.formFooterContainer}>
-                <Text style={styles.formFooterForgot}>Forgot password?</Text>
+                <Text style={styles.formFooterForgot} 
+                onPress={() => this.props.navigation.navigate('ForgotScreen')}>Forgot password?</Text>
                 <Text style={styles.formFooterSignUp}
                   onPress={() => this.props.navigation.navigate('RegisterScreen')}>New here? Sign Up</Text>
               </View>
