@@ -41,3 +41,12 @@ export const googleAuth = async () => {
     };
 
 }
+
+export const updateProfile = (username, email, image) => {
+    return ({
+        type: Actions.UPDATE_PROFILE,
+        payload: {
+            username, email, image
+        }
+    })
+}

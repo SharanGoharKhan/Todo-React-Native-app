@@ -96,6 +96,7 @@ class LoginScreen extends React.Component {
                 <View style={styles.formContainerUsernameBox}>
                   <Icon style={styles.formContainerUsernameIcon} type="AntDesign" name='user' />
                   <TextInput
+                    autoCapitalize='none'
                     style={styles.formContainerUsernameInput}
                     keyboardType='email-address' returnKeyType='next'
                     placeholder="Enter your username/email"
@@ -141,8 +142,8 @@ class LoginScreen extends React.Component {
                 <GoogleSignIn />
               </View>
               <View style={styles.formFooterContainer}>
-                <Text style={styles.formFooterForgot} 
-                onPress={() => this.props.navigation.navigate('ForgotScreen')}>Forgot password?</Text>
+                <Text style={styles.formFooterForgot}
+                  onPress={() => this.props.navigation.navigate('ForgotScreen')}>Forgot password?</Text>
                 <Text style={styles.formFooterSignUp}
                   onPress={() => this.props.navigation.navigate('RegisterScreen')}>New here? Sign Up</Text>
               </View>

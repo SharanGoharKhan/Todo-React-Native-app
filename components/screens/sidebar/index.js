@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './style'
-
+import { connect } from 'react-redux'
 import { Image } from 'react-native'
 import {
     Content,
@@ -80,8 +80,8 @@ class SideBar extends React.Component {
                     style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
                 >
                     <Image source={drawerCover} style={styles.drawerCover} />
-                    <Image square style={styles.drawerImage} source={drawerImage} />
-
+                    <Image square style={styles.drawerImage} source={{uri: this.props.user.image}} />
+                    <Text>USERNAME: {this.props.user.username}</Text>
                     <List
                         dataArray={datas}
                         renderRow={data =>
@@ -123,5 +123,7 @@ class SideBar extends React.Component {
         )
     }
 }
-
-export default SideBar;
+const mapStateToProps = (state) => ({
+    user: state.loginReducer.user
+})
+export default connect(mapStateToProps, null)(SideBar);

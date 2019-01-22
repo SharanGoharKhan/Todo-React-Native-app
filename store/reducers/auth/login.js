@@ -1,6 +1,6 @@
 import Actions from '../../actions/actionTypes'
 
-const loginReducer = (state = { user:null }, action) => {
+const loginReducer = (state = { user: null }, action) => {
     switch (action.type) {
         case Actions.LOGIN_SUCCESS:
             return Object.assign({}, state, {
@@ -19,6 +19,10 @@ const loginReducer = (state = { user:null }, action) => {
                 user: action.payload
             })
         case Actions.GOOGLE_LOGIN_ERROR:
+            return Object.assign({}, state, {
+                user: action.payload
+            })
+        case Actions.UPDATE_PROFILE:
             return Object.assign({}, state, {
                 user: action.payload
             })
