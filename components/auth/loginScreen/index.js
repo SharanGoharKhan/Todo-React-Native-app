@@ -70,6 +70,12 @@ class LoginScreen extends React.Component {
   }
 
   onLoginPressed() {
+    // DEBUG ONLY: REMOVE IN PROD
+    //this.setState({username:"Asad", password:"Asad"})
+    this.props.validateLogin("admin@admin.com", "password")
+    this.props.navigation.navigate('Home')
+
+
     this.validateLogin(this.state.username, this.state.password)
     if ((this.state.usernameError == null || this.state.usernameError.length > 1) || (this.state.passwordError == null || this.state.passwordError.length > 1)) {
       console.log('errors')
