@@ -96,7 +96,7 @@ class Todos extends React.Component {
                     <Text>TODOs List</Text>
                     <View style={styles.todo_container}>
                         {   this.state.list_todos.map( (todo)=>(
-                            <Card  style={{width: "30%", marginRight:10}}>
+                            <Card  style={{width: "30%", height:150, marginRight:10}}>
                                 <CardItem header>
                                 <Text>{todo.name}</Text>
                                 </CardItem>
