@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style'
 import { connect } from 'react-redux'
-import { Image } from 'react-native'
+import { Image, AsyncStorage } from 'react-native'
 import {
     Content,
     Text,
@@ -11,7 +11,8 @@ import {
     Container,
     Left,
     Right,
-    Badge
+    Badge,
+    Button
 } from 'native-base'
 
 const drawerCover = require('../../../assets/background-login.png')
@@ -71,6 +72,23 @@ const datas = [
 ];
 
 class SideBar extends React.Component {
+    constructor(props) {
+        super(props)
+        // this.state = {
+        //     user: null
+        // }
+        // this._getUserToken()
+    }
+    async _getUserToken() {
+        const userToken = await AsyncStorage.getItem('userToken');
+        this.setState({ user: JSON.parse(userToken) })
+    }
+    async _removeUserToken() {
+        const resp =await AsyncStorage.removeItem('userToken')
+        this.setState({ user: null })
+        this.props.navigation.navigate('Auth')
+    }
+    
     render() {
         return (
 
@@ -80,8 +98,8 @@ class SideBar extends React.Component {
                     style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
                 >
                     <Image source={drawerCover} style={styles.drawerCover} />
-                    <Image square style={styles.drawerImage} source={{uri: this.props.user.image}} />
-                    <Text>USERNAME: {this.props.user.username}</Text>
+                    <Image square style={styles.drawerImage} source={{ uri: this.props.user ? this.props.user.photoUrl:null }} />
+                    <Text>USERNAME: {this.props.user?this.props.user.name:''}</Text>
                     <List
                         dataArray={datas}
                         renderRow={data =>
@@ -118,6 +136,10 @@ class SideBar extends React.Component {
                                     </Right>}
                             </ListItem>}
                     />
+                    <Button onPress={() => { this._removeUserToken() }}>
+                        <Text>LOGOUT</Text>
+                    </Button>
+                    <Text>{JSON.stringify(this.props.user)}</Text>
                 </Content>
             </Container>
         )
