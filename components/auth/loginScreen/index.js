@@ -34,6 +34,7 @@ class LoginScreen extends React.Component {
     }
     this.validateEmail = this.validateEmail.bind(this)
     this.validatePassword = this.validatePassword.bind(this)
+    this.navigateHome = this.navigateHome.bind(this)
   }
   validateEmail(e) {
     const error = Validate({ username: this.state.username }, { username })
@@ -78,10 +79,13 @@ class LoginScreen extends React.Component {
 
     this.validateLogin(this.state.username, this.state.password)
     if ((this.state.usernameError == null || this.state.usernameError.length > 1) || (this.state.passwordError == null || this.state.passwordError.length > 1)) {
-      console.log('errors')
     } else {
       this.props.navigation.navigate('Home')
     }
+  }
+  navigateHome() {
+    console.log('navigateHome')
+    this.props.navigation.navigate('Home')
   }
 
   render() {
@@ -145,7 +149,7 @@ class LoginScreen extends React.Component {
                 <View style={styles.orContainerRight}></View>
               </View>
               <View style={styles.googleAuthContainer}>
-                <GoogleSignIn />
+                <GoogleSignIn navigateHome={this.navigateHome} />
               </View>
               <View style={styles.formFooterContainer}>
                 <Text style={styles.formFooterForgot}

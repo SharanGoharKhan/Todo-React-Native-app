@@ -1,4 +1,3 @@
-import * as Expo from 'expo'
 import Actions from '../actionTypes'
 
 export const ValidateLogin = (username, password) => {
@@ -12,41 +11,20 @@ export const ValidateLogin = (username, password) => {
     })
 
 }
-export const googleAuth = async () => {
+export const googleAuth = (result) => {
 
-    try {
-        const result = await Expo.Google.logInAsync({
-            androidClientId: '86072608741-lsoi8hcke2t8m7qvomhe0omod0serebm.apps.googleusercontent.com',
-            iosClientId: '86072608741-prt8fmiq3qbhqv9citf32qk21o4r33nk.apps.googleusercontent.com',
-            scopes: ['profile', 'email'],
-        })
-        if (result.type === 'success') {
-            return ({
-                type: Actions.GOOGLE_LOGIN_SUCCESS,
-                payload: result
-            })
-        }
-        else {
-            return {
-                type: Actions.GOOGLE_LOGIN_FAILED,
-                payload: result
-            };
-        }
-    }
-    catch (err) {
-        return {
-            type: Actions.GOOGLE_LOGIN_ERROR,
-            payload: err
-        }
-    };
+    return ({
+        type: Actions.GOOGLE_LOGIN_SUCCESS,
+        payload: result
+    })
 
 }
 
-export const updateProfile = (username, email, image) => {
+export const updateProfile = (name, email, photoUrl) => {
     return ({
         type: Actions.UPDATE_PROFILE,
         payload: {
-            username, email, image
+            name, email, photoUrl
         }
     })
 }

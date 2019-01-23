@@ -8,7 +8,7 @@ import {
     Button,
 } from "native-base";
 import { ImagePicker } from 'expo'
-import { TextInput, Image } from 'react-native'
+import { TextInput, Image, AsyncStorage } from 'react-native'
 import HeaderView from '../../../ui/header'
 import { ValidateInput, constraints } from '../../utility/constraints'
 import { updateProfile } from '../../../store/actions/auth/login'
@@ -19,12 +19,21 @@ class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: '',
-            usernameError: '',
+            name: '',
             email: '',
-            emailError: '',
-            image: 'https://pbs.twimg.com/profile_images/947132199962374144/w5yTnxS1_400x400.jpg',
+            photoUrl: 'https://pbs.twimg.com/profile_images/947132199962374144/w5yTnxS1_400x400.jpg',
+            nameError: '',
+            emailError: ''
         }
+
+    }
+    componentDidMount() {
+        this._getUserProfile()
+    }
+    async _getUserProfile() {
+        const result = await AsyncStorage.getItem('userToken')
+        this.setState({ ...JSON.parse(result) })
+        console.log(JSON.parse(result))
     }
     _pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -35,26 +44,28 @@ class Profile extends React.Component {
         console.log(result);
 
         if (!result.cancelled) {
-            this.setState({ image: result.uri });
+            this.setState({ photoUrl: result.uri });
         }
     }
-    updateProfile() {
+    async updateProfile() {
 
-        let result = validate({ email: this.state.email, name: this.state.username },
+        let result = validate({ email: this.state.email, name: this.state.name },
             { email: constraints.email, name: constraints.name })
         if (result) {
             console.log(result)
             let errors = {
                 emailError: result.email,
-                usernameError: result.name
+                nameError: result.name
             }
             this.setState({ ...errors })
             return
         }
-        this.props.updateProfile(this.state.username, this.state.email, this.state.image)
+
+        const resp = await AsyncStorage.setItem('userToken', JSON.stringify({ ...this.state, name: this.state.name, email: this.state.email, photoUrl: this.state.photoUrl }));
+        this.props.updateProfile(this.state.name, this.state.email, this.state.photoUrl)
     }
     render() {
-        let { image } = this.state;
+        let { photoUrl } = this.state;
         return (
             <Container style={styles.container}>
                 <HeaderView
@@ -67,24 +78,24 @@ class Profile extends React.Component {
                             style={[styles.profileImage]}
                             source={{ uri: "https://pbs.twimg.com/profile_images/947132199962374144/w5yTnxS1_400x400.jpg" }} /> */}
                         <Button
-                            title="Pick an image from camera roll"
+                            title="Pick an photoUrl from camera roll"
                             onPress={this._pickImage}>
-                            <Text>Pick an image from camera roll</Text></Button>
-                        {image &&
-                            <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+                            <Text>Pick an photoUrl from camera roll</Text></Button>
+                        {photoUrl &&
+                            <Image source={{ uri: photoUrl }} style={{ width: 200, height: 200 }} />}
                     </View>
                     <View>
                         <TextInput
                             returnKeyType='next'
-                            placeholder="username"
+                            placeholder="name"
                             onBlur={() => {
-                                this.setState({ usernameError: ValidateInput('name', this.state.username) })
+                                this.setState({ nameError: ValidateInput('name', this.state.name) })
                             }}
                             onChangeText={(value) => {
-                                this.setState({ username: value })
+                                this.setState({ name: value })
                             }}
-                            value={this.state.username} />
-                        {this.state.usernameError ? <Text>{this.state.usernameError}</Text> : null}
+                            value={this.state.name} />
+                        {this.state.nameError ? <Text>{this.state.nameError}</Text> : null}
                     </View>
                     <View>
                         <TextInput
@@ -119,7 +130,7 @@ const mapStateToProps = (state) => ({
     user: state.loginReducer.user
 })
 const mapDispatchToProps = (dispatch) => ({
-    updateProfile: (username, email, image) => dispatch(updateProfile(username, email, image))
+    updateProfile: (name, email, photoUrl) => dispatch(updateProfile(name, email, photoUrl))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
