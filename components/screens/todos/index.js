@@ -82,19 +82,19 @@ class Todos extends React.Component {
                 navigationObj={this.props.navigation} />
                 <Content padder>
 
-                    <View style={{ fontSize:18, flex: 1, flexDirection:"column", alignItems:"center"}}>
+                    <View style={styles.create_todo}>
                         <Text>Create a Todo</Text>
                         
                         <Item regular style={{width:"100%",}}>
                             <Input value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
                         </Item>
-                        <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={  { width:"100%", fontSize:18, flexGrow:1, flexShrink: 0 , marginBottom:5}} rowSpan={5} bordered placeholder="Description" />
+                        <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={ styles.input_desc} rowSpan={5} bordered placeholder="Description" />
                         <Button onPress={this.AddTodos} style={{ alignSelf:"center"}}   primary><Text> Submit </Text></Button>
 
                     </View>
                     
                     <Text>TODOs List</Text>
-                    <View style={{ flex:1, flexDirection:"row", justifyContent:"flex-start", flexWrap:"wrap" }}>
+                    <View style={styles.todo_container}>
                         {   this.state.list_todos.map( (todo)=>(
                             <Card  style={{width: "30%", marginRight:10}}>
                                 <CardItem header>
