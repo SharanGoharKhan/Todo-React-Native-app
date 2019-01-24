@@ -31,6 +31,7 @@ class Todos extends React.Component {
             list_todos:[
                 {name:"Go to uni", desc:"Sir Waseem 1visit karna hai"},
                 {name:"Go to uni2", desc:"Sir Waseem v2isit karna hai"},
+                {name:"Go to uni3", desc:"Sir Waseem v2isit karna hai"},
                 
 
   

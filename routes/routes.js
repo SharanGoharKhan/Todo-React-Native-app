@@ -94,7 +94,8 @@ const Drawer = createDrawerNavigator(
     {
         initialRouteName: 'Home',
         contentOptions: {
-            activeTintColor: '#e91e63'
+            activedefTintColor: 'rgb(234, 94, 32)',
+            activeBackgroundColor : 'rgb(234, 94, 32)'
         },
         contentComponent: props => <SideBar {...props} />
     })

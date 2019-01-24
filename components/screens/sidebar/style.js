@@ -29,5 +29,16 @@ export default {
     fontWeight: "400",
     textAlign: "center",
     marginTop: Platform.OS === "android" ? -3 : undefined
+  },
+  active_link:{
+    color: 'rgb(0, 123, 255)',
+  },
+  list_item:{
+    marginLeft: 0,
+    paddingLeft: 20
+  },
+  dark_background:{
+    backgroundColor : '#eee',
+
   }
 };
