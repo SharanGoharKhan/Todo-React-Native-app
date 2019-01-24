@@ -15,7 +15,6 @@ import {
     Tab,
     Tabs 
 } from "native-base";
-
 import TextInput from 'native-base'
 
 import HeaderView from '../../../ui/header'
@@ -32,7 +31,7 @@ class Todos extends React.Component {
             list_todos:[
                 {name:"Go to uni", desc:"Sir Waseem 1visit karna hai"},
                 {name:"Go to uni2", desc:"Sir Waseem v2isit karna hai"},
-                {name:"Go to uni3", desc:"Sir Waseem 3visit karna hai"},
+                
 
   
             ]
@@ -86,9 +85,9 @@ class Todos extends React.Component {
 
                     <View>
                     <Tabs>
+          
                         <Tab heading="Create TODO">
                             <View style={styles.create_todo}>
-                            <Text>Create a Todo</Text>
                             
                             <Item regular style={{width:"100%",marginLeft:0}}>
                                 <Input style={{width:"100%",marginLeft:0}} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
@@ -99,9 +98,9 @@ class Todos extends React.Component {
                             </View>
                         </Tab>
                         <Tab heading="List TODOs">
-                        <Text>TODOs List</Text>
                             <View style={styles.todo_container}>
                                 {   this.state.list_todos.map( (todo)=>(
+                               
                                     <Card  style={{width: "30%", height:180,marginRight: 'auto'}}>
                                         <CardItem header>
                                         <Text>{todo.name}</Text>
@@ -110,7 +109,6 @@ class Todos extends React.Component {
                                         <Body>
                                             <Text>
                                                 {
-            
                                                     todo.desc.length > 15? todo.desc.substr(0,15)+"...": todo.desc
                                                     }
                                             </Text>
