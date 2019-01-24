@@ -157,9 +157,10 @@ class SideBar extends React.Component {
                 >
                     <Image source={drawerCover} style={styles.drawerCover} />
                     <Image square style={styles.drawerImage} source={{ uri: this.props.user ? this.props.user.photoUrl : null }} />
+              
                     <Text>USERNAME: {this.props.user ? this.props.user.name : ''}</Text>
-                    <Text> {this.state.counter} </Text>
                     <List
+                        style={{marginBottom:0, paddingBottom:0}}
                         dataArray={new_data}
                         renderRow={data =>
                             <ListItem
@@ -200,10 +201,27 @@ class SideBar extends React.Component {
                                     </Right>}
                             </ListItem>}
                     />
-                    <Button onPress={() => { this._removeUserToken() }}>
-                        <Text>LOGOUT</Text>
+               
+                  
+    
+                
+                        <ListItem style={{ marginLeft:0,paddingLeft: 20, marginTop:0, paddingTop:0}} onPress={() => { this._removeUserToken() }}>
+                            <Left>
+                            <Icon
+                                active
+                                name={"logout"}
+                                type={"MaterialCommunityIcons"}
+                                style={[{ fontSize: 26, width: 30} ]}
+                             />
+                            <Text  style={styles.text}>Log Out</Text>
 
-                    </Button>
+                        
+                            </Left>
+                           
+
+                        </ListItem>
+            
+             
                     <Text>{JSON.stringify(this.props.user)}</Text>
 
                 </Content>
