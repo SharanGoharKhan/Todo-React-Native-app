@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://sp-xah.anonymous.todo-react-native-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.sp-xah.anonymous.todo-react-native-app.exp.direct",
-  "ngrokPid": 13172,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
   "packagerPort": 19001,
-  "packagerPid": 14920
+  "packagerPid": 3740
 }

@@ -11,7 +11,9 @@ import {
     Button, 
     Card,
     CardItem,
-    Body 
+    Body,
+    Tab,
+    Tabs 
 } from "native-base";
 
 import TextInput from 'native-base'
@@ -82,40 +84,53 @@ class Todos extends React.Component {
                 navigationObj={this.props.navigation} />
                 <Content padder>
 
-                    <View style={styles.create_todo}>
-                        <Text>Create a Todo</Text>
-                        
-                        <Item regular style={{width:"100%",}}>
-                            <Input value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
-                        </Item>
-                        <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={ styles.input_desc} rowSpan={5} bordered placeholder="Description" />
-                        <Button onPress={this.AddTodos} style={{ alignSelf:"center"}}   primary><Text> Submit </Text></Button>
+                    <View>
+                    <Tabs>
+                        <Tab heading="Create TODO">
+                            <View style={styles.create_todo}>
+                            <Text>Create a Todo</Text>
+                            
+                            <Item regular style={{width:"100%",marginLeft:0}}>
+                                <Input style={{width:"100%",marginLeft:0}} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
+                            </Item>
+                            <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={ styles.input_desc} rowSpan={5} bordered placeholder="Description" />
+                            <Button onPress={this.AddTodos} style={{ alignSelf:"center"}}   primary><Text> Submit </Text></Button>
 
+                            </View>
+                        </Tab>
+                        <Tab heading="List TODOs">
+                        <Text>TODOs List</Text>
+                            <View style={styles.todo_container}>
+                                {   this.state.list_todos.map( (todo)=>(
+                                    <Card  style={{width: "30%", height:180,marginRight: 'auto'}}>
+                                        <CardItem header>
+                                        <Text>{todo.name}</Text>
+                                        </CardItem>
+                                        <CardItem>
+                                        <Body>
+                                            <Text>
+                                                {
+            
+                                                    todo.desc.length > 15? todo.desc.substr(0,15)+"...": todo.desc
+                                                    }
+                                            </Text>
+                                        </Body>
+                                        </CardItem>
+                                
+                                    </Card>
+                                    )
+                                )}
+        
+                        </View>
+                        </Tab>
+                     
+                    </Tabs>
                     </View>
+
+
+            
                     
-                    <Text>TODOs List</Text>
-                    <View style={styles.todo_container}>
-                        {   this.state.list_todos.map( (todo)=>(
-                            <Card  style={{width: "30%", height:150}}>
-                                <CardItem header>
-                                <Text>{todo.name}</Text>
-                                </CardItem>
-                                <CardItem>
-                                <Body>
-                                    <Text>
-                                        {
-       
-                                            todo.desc.length > 20? todo.desc.substr(0,20)+"...": todo.desc
-                                            }
-                                    </Text>
-                                </Body>
-                                </CardItem>
-                           
-                            </Card>
-                            )
-                        )}
- 
-                  </View>
+                   
                 </Content>
             </Container>
         )

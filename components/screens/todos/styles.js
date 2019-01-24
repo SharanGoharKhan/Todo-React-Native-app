@@ -6,7 +6,9 @@ export default {
       fontSize:18,
       flex: 1, 
       flexDirection:"column",
-      alignItems:"center"
+      flexGrow:0,
+      alignItems:"center",
+      height: 250
     },
     input_desc: {
       width:"100%",
