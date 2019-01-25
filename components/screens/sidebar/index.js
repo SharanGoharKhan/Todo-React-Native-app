@@ -160,10 +160,10 @@ class SideBar extends React.Component {
                 
                     <ImageBackground source={drawerCover} style={styles.drawerCover}>
                         <Content style={styles.cover_content}>
-                            <Image  style={styles.profile_pic} source={this.props.user.profile_pic === undefined?default_img :this.props.user.profile_pic}  />
+                            <Image  style={styles.profile_pic} source={ default_img }  />
 
-                            <Text style={styles.profile_name} >{ this.props.user.name === undefined? "UNKNOWN": this.props.user.name } </Text>
-                            <Text style={styles.profile_email} >{ this.props.user.username === undefined? "unknownsmtp@provider.com": this.props.user.username }</Text>
+                            <Text style={styles.profile_name} >{  "UNKNOWN" } </Text>
+                            <Text style={styles.profile_email} >{ "unknownsmtp@provider.com" }</Text>
 
                         </Content>
                     </ImageBackground>
