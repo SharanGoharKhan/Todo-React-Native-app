@@ -8,7 +8,9 @@ export default {
       flexDirection:"column",
       flexGrow:0,
       alignItems:"center",
-      height: 250
+      height: 250,
+        paddingLeft:10, 
+        paddingRight:10
     },
     input_desc: {
       width:"100%",

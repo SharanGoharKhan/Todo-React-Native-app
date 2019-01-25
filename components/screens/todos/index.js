@@ -82,11 +82,11 @@ class Todos extends React.Component {
             <Container style={styles.container}>
                 <HeaderView title='Todo'
                 navigationObj={this.props.navigation} />
-                <Content padder>
+                <Content >
 
                     <View>
-                    <Tabs>
-          
+                    <Tabs style={{paddingTop:0}}>
+
                         <Tab heading="Create TODO">
                             <View style={styles.create_todo}>
                             
