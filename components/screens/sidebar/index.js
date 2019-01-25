@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style'
 import { connect } from 'react-redux'
-import { Image, AsyncStorage } from 'react-native'
+import { Image, ImageBackground, AsyncStorage } from 'react-native'
 import {
     Content,
     Text,
@@ -14,7 +14,7 @@ import {
     Badge,
     Button
 } from 'native-base'
-
+const default_img = require('../../../assets/sample.png')
 const drawerCover = require('../../../assets/background-login.png')
 const drawerImage = require('../../../assets/todo_logo.png')
 
@@ -108,6 +108,7 @@ class SideBar extends React.Component {
 
 
     componentDidMount = () => {
+        console.log(this.props.user)
         // set first page to home page
         //console.log("Initial route:",this.props.activeItemKey)
         //console.log(this.props.activeItemKey)
@@ -141,13 +142,14 @@ class SideBar extends React.Component {
         //console.log("RENDER")
         //console.log("Prev: ", this.previous_link)
         //console.log("Current: ", this.state.activeRoute)
+
+        
         
         if( this.state.previous_link != this.state.activeRoute )
             new_data = this.DeepCopy(datas)
         previous_link = this.state.activeRoute
         //console.log("New\n",new_data)
     
-     
         return (
 
             <Container>
@@ -155,10 +157,17 @@ class SideBar extends React.Component {
                     bounces={false}
                     style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
                 >
-                    <Image source={drawerCover} style={styles.drawerCover} />
-                    <Image square style={styles.drawerImage} source={{ uri: this.props.user ? this.props.user.photoUrl : null }} />
-              
-                    <Text>USERNAME: {this.props.user ? this.props.user.name : ''}</Text>
+                
+                    <ImageBackground source={drawerCover} style={styles.drawerCover}>
+                        <Content style={styles.cover_content}>
+                            <Image  style={styles.profile_pic} source={this.props.user.profile_pic === undefined?default_img :this.props.user.profile_pic}  />
+
+                            <Text style={styles.profile_name} >{ this.props.user.name === undefined? "UNKNOWN": this.props.user.name } </Text>
+                            <Text style={styles.profile_email} >{ this.props.user.username === undefined? "unknownsmtp@provider.com": this.props.user.username }</Text>
+
+                        </Content>
+                    </ImageBackground>
+                
                     <List
                         style={{marginBottom:0, paddingBottom:0}}
                         dataArray={new_data}
@@ -205,7 +214,7 @@ class SideBar extends React.Component {
                   
     
                 
-                        <ListItem style={{ marginLeft:0,paddingLeft: 20, marginTop:0, paddingTop:0}} onPress={() => { this._removeUserToken() }}>
+                        <ListItem style={{ marginLeft:0,paddingLeft: 20, marginTop:0, paddingTop:10}} onPress={() => { this._removeUserToken() }}>
                             <Left>
                             <Icon
                                 active
@@ -222,7 +231,6 @@ class SideBar extends React.Component {
                         </ListItem>
             
              
-                    <Text>{JSON.stringify(this.props.user)}</Text>
 
                 </Content>
             </Container>

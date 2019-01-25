@@ -10,7 +10,8 @@ export default {
     height: deviceHeight / 3.5,
     width: null,
     position: "relative",
-    marginBottom: 10
+    marginBottom: 10,
+    backgroundColor: 'rgba(0,0,0,0.5)'
   },
   drawerImage: {
     position: "absolute",
@@ -19,6 +20,35 @@ export default {
     width: 100,
     height: 100
   },
+  profile_pic:{
+    position:"relative",
+    height: 60,
+    width: 60,
+    borderRadius:100,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 1
+    }
+  },
+  profile_name:{
+    color: "#fff",
+    fontWeight: "400"
+  },
+  profile_email:{
+    color: "#fff",
+    fontSize: 13,
+  }
+  ,
+  cover_content: {
+    position:"relative",
+    top: 40,
+    left: 30,
+    color: "#fff"
+  },
+  
   text: {
     fontWeight: Platform.OS === "ios" ? "500" : "400",
     fontSize: 16,
