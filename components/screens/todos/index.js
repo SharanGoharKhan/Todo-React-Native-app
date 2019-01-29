@@ -94,7 +94,7 @@ class Todos extends React.Component {
                                 <Input style={{width:"100%",marginLeft:0}} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
                             </Item>
                             <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={ styles.input_desc} rowSpan={5} bordered placeholder="Description" />
-                            <Button onPress={this.AddTodos} style={{ alignSelf:"center"}}   primary><Text> Submit </Text></Button>
+                            <Button onPress={this.AddTodos} style={{ width:"100%"}}   primary><Text> Submit </Text></Button>
 
                             </View>
                         </Tab>

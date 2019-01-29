@@ -7,6 +7,7 @@ import {
     Text,
     View,
     Button,
+    Item, Input
 } from "native-base";
 import { ImagePicker } from 'expo'
 import { Dimensions, TextInput, Image, AsyncStorage } from 'react-native'
@@ -76,8 +77,8 @@ class Profile extends React.Component {
                     navigationObj={this.props.navigation} />
                 <Content padder>
          
-                    <View >
-                        <View style={{flex: 1, alignItems:"center"}}>
+                    <View style={{flex: 1, alignItems:"center"}}>
+                        <View >
                             <View>
                                 {photoUrl && <Image style={styles.profileImage} source={{ uri: photoUrl }}  />}
                                 <View 
@@ -86,7 +87,7 @@ class Profile extends React.Component {
                                         width: 28, 
                                         height: 28, 
                                         paddingLeft: 0,
-                                        borderRadius: 100, position: "absolute", top: 150, right:10,
+                                        borderRadius: 100, position: "absolute", top: 100, right:3,
                                         paddingLeft: 0, marginLeft:0,
                                         backgroundColor:"rgb(63, 188, 231)"
                                     }}>
@@ -101,17 +102,17 @@ class Profile extends React.Component {
                        
                             
                         </View>
-                    </View>
 
-                    <View style={{paddingLeft:50}}>
+                    <View style={{width:"80%", marginTop:30}}>
                         {/* <Image
                             style={[styles.profileImage]}
                             source={{ uri: "https://pbs.twimg.com/profile_images/947132199962374144/w5yTnxS1_400x400.jpg" }} /> */}
                     <View >
                             <Text style={{ fontSize: 13, color:"rgb(63, 188, 231)"}}>Name</Text>
                             <TextInput
+                                style={{borderColor: 'rgb(220,220,220)', borderWidth: 1, borderRadius: 20, overflow:"hidden", paddingLeft: 8}}
                                 returnKeyType='next'
-                                placeholder="name"
+                                placeholder="Name"
                                 onBlur={() => {
                                     this.setState({ nameError: ValidateInput('name', this.state.name) })
                                 }}
@@ -122,22 +123,27 @@ class Profile extends React.Component {
                             {this.state.nameError ? <Text style={styles.error_label}>{this.state.nameError}</Text> : null}
                         </View>
                         <View>
-                            <Text style={{ fontSize: 13, color:"rgb(63, 188, 231)"}}>Email</Text>
+                            <Text style={{paddingTop:10, fontSize: 13, color:"rgb(63, 188, 231)"}}>Email</Text>
                             <TextInput
+                                style={{borderColor: 'rgb(220,220,220)', borderWidth: 1, borderRadius: 20, overflow:"hidden", paddingLeft: 8}}
                                 autoCapitalize='none'
                                 returnKeyType='next'
-                                placeholder="email"
+                                placeholder="Email"
                                 onBlur={() => {
                                     this.setState({ emailError: ValidateInput('email', this.state.email) })
                                 }}
                                 onChangeText={(value) => { this.setState({ email: value.toLowerCase() }) }}
                                 value={this.state.email}
                             />
+                   
+
                             {this.state.emailError ? <Text style={styles.error_label}>{this.state.emailError}</Text> : null}
                         </View>
-                        <View>
+                        <View  style={{  paddingTop:20}}>
 
                             <Button
+                                full
+                                style={{  flex:1, flexGrow:1,flexDirection:"row", textAlign: 'center', height: 30 , borderRadius: 20 , backgroundColor:"rgb(63, 188, 231)"}}
                                 onPress={() => {
                                     this.updateProfile()
                                     console.log('save')
@@ -147,6 +153,7 @@ class Profile extends React.Component {
                         </View>
 
                     </View>
+                </View>
                  
                 </Content>
             </Container >

@@ -4,8 +4,8 @@ import { Dimensions} from 'react-native'
 
 export default {
     profileImage: {
-        height: 200,
-        width: 200,
+        height: 150,
+        width: 150,
         borderRadius: 100,
         
     },
