@@ -14,7 +14,7 @@ import {
     Badge,
     Button
 } from 'native-base'
-const default_img = require('../../../assets/sample.png')
+const default_img = 'https://i1.wp.com/www.royalsmushicafe.dk/wp-content/uploads/2016/02/Profile-Placeholder.jpg?ssl=1'
 const drawerCover = require('../../../assets/background-login.png')
 const drawerImage = require('../../../assets/todo_logo.png')
 
@@ -99,7 +99,7 @@ class SideBar extends React.Component {
     navigateRoute = (route) => {
         // change active pages
         //console.log("Routing to: ", route, "-")
-       // console.log("Acive Route ", this.state.activeRoute)
+        // console.log("Acive Route ", this.state.activeRoute)
         this.previous_link = this.state.activeRoute
         this.setState({ activeRoute: route.trim() })
         //this.setState({ counter: this.state.counter + 1 })
@@ -116,7 +116,7 @@ class SideBar extends React.Component {
         //console.log("Initial route:", this.state.activeRoute.trim(), "-")
     }
 
-    DeepCopy = (data_list)=>{
+    DeepCopy = (data_list) => {
         let net_data = []
         data_list.forEach(element => {
             obj = {
@@ -126,13 +126,14 @@ class SideBar extends React.Component {
                 route: element.route,
                 type: element.type,
             }
-        net_data.push(obj)
+            net_data.push(obj)
 
         });
 
         return net_data
     }
     render = () => {
+        console.log(`I am here ${this.props.user}`)
         //console.log(datas)
         //console.log("Render called Current Counter is ", this.state.counter)
 
@@ -143,13 +144,13 @@ class SideBar extends React.Component {
         //console.log("Prev: ", this.previous_link)
         //console.log("Current: ", this.state.activeRoute)
 
-        
-        
-        if( this.state.previous_link != this.state.activeRoute )
+
+
+        if (this.state.previous_link != this.state.activeRoute)
             new_data = this.DeepCopy(datas)
         previous_link = this.state.activeRoute
         //console.log("New\n",new_data)
-    
+
         return (
 
             <Container>
@@ -157,19 +158,17 @@ class SideBar extends React.Component {
                     bounces={false}
                     style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
                 >
-                
+
                     <ImageBackground source={drawerCover} style={styles.drawerCover}>
                         <Content style={styles.cover_content}>
-                            <Image  style={styles.profile_pic} source={this.props.user.profile_pic === undefined?default_img :this.props.user.profile_pic}  />
-
-                            <Text style={styles.profile_name} >{ this.props.user.name === undefined? "UNKNOWN": this.props.user.name } </Text>
-                            <Text style={styles.profile_email} >{ this.props.user.username === undefined? "unknownsmtp@provider.com": this.props.user.username }</Text>
-
+                            <Image style={styles.profile_pic} source={{uri: this.props.user.photoUrl  ? this.props.user.photoUrl : default_img}} />
+                            <Text style={styles.profile_name} >{this.props.user.name ? this.props.user.name : "UNKNOWN" } </Text>
+                            <Text style={styles.profile_email} >{this.props.user.email ? this.props.user.email : "unknownsmtp@provider.com"}</Text>
                         </Content>
                     </ImageBackground>
-                
+
                     <List
-                        style={{marginBottom:0, paddingBottom:0}}
+                        style={{ marginBottom: 0, paddingBottom: 0 }}
                         dataArray={new_data}
                         renderRow={data =>
                             <ListItem
@@ -177,7 +176,7 @@ class SideBar extends React.Component {
                                 noBorder
                                 extraData={this.state}
                                 onPress={() => this.navigateRoute(data.route)}
-                                style = { [ styles.list_item , this.state.activeRoute == data.name.trim() ? styles.dark_background : ""]}
+                                style={[styles.list_item, this.state.activeRoute == data.name.trim() ? styles.dark_background : ""]}
 
                             >
 
@@ -186,12 +185,12 @@ class SideBar extends React.Component {
                                         active
                                         name={data.icon}
                                         type={data.type}
-                                        style={[ this.state.activeRoute == data.name.trim() ? styles.active_link : "",{ fontSize: 26, width: 30} ]}
+                                        style={[this.state.activeRoute == data.name.trim() ? styles.active_link : "", { fontSize: 26, width: 30 }]}
                                     />
                                     <Text style={[styles.text, this.state.activeRoute == data.name.trim() ? styles.active_link : ""]}>
                                         {data.name}
                                     </Text>
-                                   
+
                                 </Left>
                                 {data.types &&
                                     <Right style={{ flex: 1 }}>
@@ -210,27 +209,27 @@ class SideBar extends React.Component {
                                     </Right>}
                             </ListItem>}
                     />
-               
-                  
-    
-                
-                        <ListItem style={{ marginLeft:0,paddingLeft: 20, marginTop:0, paddingTop:10}} onPress={() => { this._removeUserToken() }}>
-                            <Left>
+
+
+
+
+                    <ListItem style={{ marginLeft: 0, paddingLeft: 20, marginTop: 0, paddingTop: 10 }} onPress={() => { this._removeUserToken() }}>
+                        <Left>
                             <Icon
                                 active
                                 name={"logout"}
                                 type={"MaterialCommunityIcons"}
-                                style={[{ fontSize: 26, width: 30} ]}
-                             />
-                            <Text  style={styles.text}>Log Out</Text>
+                                style={[{ fontSize: 26, width: 30 }]}
+                            />
+                            <Text style={styles.text}>Log Out</Text>
 
-                        
-                            </Left>
-                           
 
-                        </ListItem>
-            
-             
+                        </Left>
+
+
+                    </ListItem>
+
+
 
                 </Content>
             </Container>
