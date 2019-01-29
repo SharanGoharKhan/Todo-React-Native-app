@@ -9,6 +9,9 @@ export default {
   messageSendContainer: {
     alignItems: 'flex-end'
   },
+  messageRecieveContainer: {
+    alignItems: 'flex-start'
+  },
   messageSendView: {
     marginLeft: 30,
     marginRight: 5,
@@ -16,6 +19,15 @@ export default {
     padding: 5,
     borderWidth: 1,
     backgroundColor: '#0077ff',
+    borderRadius: 5
+  },
+  messageRecieveView: {
+    marginLeft: 5,
+    marginRight: 30,
+    marginBottom: 10,
+    padding: 5,
+    borderWidth: 1,
+    backgroundColor: 'pink',
     borderRadius: 5
   },
   srcollViewContainer: {

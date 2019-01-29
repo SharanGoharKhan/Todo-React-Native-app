@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-    Container,
-    Content,
+    Container, 
     Text,
     Button,
     Input
@@ -27,6 +26,11 @@ class Chat extends React.Component {
                 'it',
                 'me',
                 'this is a very long message just to see if it is working or not but i am not sure if it will be able to work this is a very long message just to see if it is working or not but i am not sure if it will be able to work this is a very long message just to see if it is working or not but i am not sure if it will be able to work'
+            ],
+            messagesReceived: [
+                'hey',
+                'you there?',
+                'this is a very long message just to see if it is working or not but i am not sure if it will be able to work this is a very long message just to see if it is working or not but i am not sure if it will be able to work this is a very long message just to see if it is working or not but i am not sure if it will be able to work'
             ]
         }
     }
@@ -48,6 +52,13 @@ class Chat extends React.Component {
                             ref="scrollView"
                             onContentSizeChange={(width, height) => this.refs.scrollView.scrollTo({ y: height })}
                             style={styles.srcollViewContainer}>
+                            {this.state.messagesReceived.map((message,key) => (
+                                <View style={styles.messageRecieveContainer} key={key}>
+                                    <View style={styles.messageSendView}>
+                                        <Text style={styles.messageText}>{message}</Text>
+                                    </View>
+                                </View>    
+                            ))}
                             {this.state.messagesSent.map((message, key) => (
                                 <View style={styles.messageSendContainer} key={key}>
                                     <View style={styles.messageSendView}>
