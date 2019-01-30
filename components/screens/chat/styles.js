@@ -31,6 +31,7 @@ export default {
     borderRadius: 5
   },
   srcollViewContainer: {
+    paddingTop:10,
     flex: 1
   },
   messageText: {
