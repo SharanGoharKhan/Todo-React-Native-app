@@ -145,11 +145,11 @@ class Todos extends React.Component {
                </TabHeading>}>
                             <View style={styles.create_todo}>
                             
-                            <Item regular style={{width:"100%",marginLeft:0}}>
+                            <Item regular style={{width:"100%",marginLeft:0 ,marginTop:10 }}>
                                 <Input style={{width:"100%",marginLeft:0}} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
                             </Item>
                             <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={ styles.input_desc} rowSpan={5} bordered placeholder="Description" />
-                            <Button full onPress={this.AddTodos} style={{  flex:1, flexGrow:1,flexDirection:"row", textAlign: 'center', height: 30 }}   primary><Text> Submit </Text></Button>
+                            <Button full onPress={this.AddTodos} primary style={{ height:30, borderRadius:20, backgroundColor:"#03dac6", flex:1, flexGrow:1,flexDirection:"row", textAlign: 'center', height: 30 }}   primary><Text> Submit </Text></Button>
 
                             </View>
                         </Tab>
@@ -213,16 +213,12 @@ class Todos extends React.Component {
                                 style={{marginBottom:20}}
                                 blurOnSubmit={true}
                                 onSubmitEditing={()=>{Keyboard.dismiss()}} />
-                            <Button full  onPress={this.UpdateTodo}  primary><Text> Update TODO </Text></Button>
+                            <Button full  onPress={this.UpdateTodo} style={{ height:30, borderRadius:20, backgroundColor:"#03dac6", height: 30 }} primary><Text> Update TODO </Text></Button>
                         </View>
                        
                  
               
-                    <Button
-                        onPress={ () => this.setModalVisible(false) }
-                        style={ { marginTop: 10 } }
-                        title="CLOSE"
-                    />
+               
                 </Dialog>
 
                       
