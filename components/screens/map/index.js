@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapView, Location, Permissions } from 'expo'
 import { setLocation } from '../../../store/actions/maps/maps'
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import {
     Container,
     Content,
@@ -68,6 +68,7 @@ class Maps extends React.Component {
     };
 
     render() {
+        const deviceHeight = Dimensions.get("window").height;
         return (
             <Container style={styles.container}>
                 <HeaderView 
@@ -77,7 +78,7 @@ class Maps extends React.Component {
                     <View style={styles.container}>
                         <MapView
                             loadingEnabled
-                            style={{ alignSelf: 'stretch', height: 500 }}
+                            style={{ alignSelf: 'stretch', height: deviceHeight-80 }}
                             onRegionChange={this._handleMapRegionChange}
                             showsUserLocation
                             followsUserLocation
@@ -97,11 +98,11 @@ class Maps extends React.Component {
                             />
                         </MapView>
 
-                        <Text>
+                        {/* <Text>
                             Location: {this.state.locationResult}
                             State location: {JSON.stringify(this.props.location)}
-                        </Text>
-                        <Button
+                        </Text> */}
+                        {/* <Button
                             title='Get Current location'
                             onPress={() => {
                                 this._getLocationAsync()
@@ -110,7 +111,7 @@ class Maps extends React.Component {
                             title="save my location"
                             onPress={() => {
                                 this.props.setLocation(this.state.location)
-                            }} />
+                            }} /> */}
                     </View>
                 </Content>
             </Container>
