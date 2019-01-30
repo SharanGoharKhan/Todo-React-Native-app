@@ -11,7 +11,6 @@ import AuthLoading from '../ui/authLoading'
 import MapScreen from '../components/screens/map'
 import Calendar from '../components/screens/calender'
 import Chat from '../components/screens/chat'
-import Charts from '../components/screens/charts'
 import Todos from '../components/screens/todos'
 import SideBar from '../components/screens/sidebar'
 import Home from '../components/screens/home'
@@ -87,7 +86,6 @@ const Drawer = createDrawerNavigator(
         Calendar: { screen: Calendar },
         Map: { screen: MapScreen },
         Chat: { screen: Chat },
-        Charts: { screen: Charts },
         Todos: { screen: Todos },
         Profile: { screen: Profile }
     },

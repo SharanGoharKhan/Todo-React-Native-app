@@ -138,43 +138,40 @@ class Todos extends React.Component {
                 <Content >
 
                     <View>
-                    <Tabs style={{paddingTop:0}}>
+                        <Tabs style={{ paddingTop: 0 }}>
+                            <Tab heading="Create TODO">
+                                <View style={styles.create_todo}>
+                                    <Item regular style={{ width: "100%", marginLeft: 0,marginTop:10 }}>
+                                        <Input style={{ width: "100%", marginLeft: 0 }} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
+                                    </Item>
+                                    <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg} style={styles.input_desc} rowSpan={5} bordered placeholder="Description" />
+                                    <Button full onPress={this.AddTodos} style={{ flex:1, flexGrow:1,flexDirection:"row", textAlign: 'center', height: 30 , borderRadius: 20 , backgroundColor:"#03dac6" }} primary><Text> Submit </Text></Button>
+                                </View>
+                            </Tab>
+                            <Tab heading="List TODOs">
+                                <View style={styles.todo_container}>
+                                    {this.state.list_todos.map((todo) => (
 
-                        <Tab heading={<TabHeading style={{backgroundColor: '#6200EE'}}>
-                 <Text style={{color: '#ffffff'}}>Create TODOs</Text>
-               </TabHeading>}>
-                            <View style={styles.create_todo}>
-                            
-                            <Item regular style={{width:"100%",marginLeft:0}}>
-                                <Input style={{width:"100%",marginLeft:0}} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
-                            </Item>
-                            <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg}  style={ styles.input_desc} rowSpan={5} bordered placeholder="Description" />
-                            <Button full onPress={this.AddTodos} style={{  flex:1, flexGrow:1,flexDirection:"row", textAlign: 'center', height: 30 }}   primary><Text> Submit </Text></Button>
+                                        <Card style={{ width: "30%", height: 180, marginRight: 'auto' }}>
+                                            <CardItem header>
+                                                <Text>{todo.name}</Text>
+                                            </CardItem>
+                                            <CardItem>
+                                                <Body>
+                                                    <Text>
+                                                        {
+                                                            todo.desc.length > 15 ? todo.desc.substr(0, 15) + "..." : todo.desc
+                                                        }
+                                                    </Text>
+                                                </Body>
+                                            </CardItem>
 
-                            </View>
-                        </Tab>
-                        <Tab heading={<TabHeading style={{backgroundColor: '#6200EE'}}>
-                        <Text style={{color: '#ffffff'}}>List TODOs</Text>
-                    </TabHeading>}>
-                            <View style={styles.todo_container}>
-                                {   this.state.list_todos.map( (todo, i)=>(
-                                   
-                                  <TouchableOpacity key={ i } activeOpacity={0.6} style={{width: "30%", height:180,marginRight: 'auto', marginBottom:10}}  onPress={()=>{this.setModalVisible(true, i)}}>
-                                    <Card key={ i } style={{width:"100%", height:"100%", padding:0, margin:0}}>
-                                        <CardItem header>
-                                        <Text>{todo.name}</Text>
-                                        </CardItem>
-                                        <CardItem>
-                                        <Body>
-                                            <Text>
-                                                {
-                                                    todo.desc.length > 15? todo.desc.substr(0,15)+"...": todo.desc
-                                                }
-                                            </Text>
-                                        </Body>
-                                        </CardItem>
-                                    </Card>
-                                  </TouchableOpacity>
+                                        </Card>
+                                    )
+                                    )}
+
+                                </View>
+                            </Tab>
 
                                     )
                                 )}
