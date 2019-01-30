@@ -17,8 +17,7 @@ export default {
     marginRight: 5,
     marginBottom: 10,
     padding: 5,
-    borderWidth: 1,
-    backgroundColor: '#0077ff',
+    backgroundColor: 'rgb(63, 188, 231)',
     borderRadius: 5
   },
   messageRecieveView: {
@@ -26,11 +25,11 @@ export default {
     marginRight: 30,
     marginBottom: 10,
     padding: 5,
-    borderWidth: 1,
     backgroundColor: 'pink',
     borderRadius: 5
   },
   srcollViewContainer: {
+    paddingTop:10,
     flex: 1
   },
   messageText: {

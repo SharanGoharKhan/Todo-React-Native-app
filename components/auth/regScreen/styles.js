@@ -1,7 +1,8 @@
 export default {
     ImageBackground: {
       width: '100%', 
-      height: '100%' 
+      height: '100%',
+      backgroundColor: '#6200EE'
     },
     ScreenContainer: {
       height: '100%', 

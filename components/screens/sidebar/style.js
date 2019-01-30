@@ -11,7 +11,7 @@ export default {
     width: null,
     position: "relative",
     marginBottom: 10,
-    backgroundColor: 'rgba(0,0,0,0.5)'
+    backgroundColor: '#6200EE'
   },
   drawerImage: {
     position: "absolute",
@@ -61,7 +61,7 @@ export default {
     marginTop: Platform.OS === "android" ? -3 : undefined
   },
   active_link:{
-    color: 'rgb(0, 123, 255)',
+    color: '#6200EE',
   },
   list_item:{
     marginLeft: 0,

@@ -29,7 +29,7 @@ class ForgotScreen extends React.Component {
 
     render() {
         return (
-            <ImageBackground style={styles.ImageBackground} source={require('../../../assets/background-login.png')}>
+            <ImageBackground style={styles.ImageBackground}>
                 <View style={{flex:1,justifyContent:'center',alignItems:'center' }}>
                     <View style={{ width: '80%'}}>
                         <View style={{alignItems:'center',marginBottom:20}}>

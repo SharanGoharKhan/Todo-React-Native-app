@@ -63,7 +63,7 @@ class RegisterScreen extends React.Component {
     }
     render() {
         return (
-            <ImageBackground style={styles.ImageBackground} source={require('../../../assets/background-login.png')}>
+            <ImageBackground style={styles.ImageBackground}>
                 <View style={styles.ScreenContainer}>
                     <View style={styles.container}>
                         <View style={styles.logoContainer}>
@@ -74,7 +74,7 @@ class RegisterScreen extends React.Component {
                                 <Text style={styles.logoContainerHeadline}>Create Account</Text>
                             </View>
                         </View>
-                        <KeyboardAvoidingView style={{ flex: 1 }} behavior='padding'>
+                        <KeyboardAvoidingView style={{ flex: 1,marginTop:30 }} behavior='padding'>
                             <View style={{ flex: 1 }} >
                                 <View style={styles.formContainer}>
                                     <View style={styles.formContainerUsernameBox}>
