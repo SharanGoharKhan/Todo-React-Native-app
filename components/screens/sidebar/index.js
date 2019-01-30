@@ -56,13 +56,6 @@ const datas = [
         types: "5"
     },
     {
-        name: 'Charts',
-        route: 'Charts',
-        icon: 'barschart',
-        type: 'AntDesign',
-        bg: '#C5442'
-    },
-    {
         name: 'Todos',
         route: 'Todos',
         icon: 'done',
