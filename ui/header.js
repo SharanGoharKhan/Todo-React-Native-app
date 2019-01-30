@@ -15,7 +15,7 @@ class HeaderView extends React.Component {
     render() {
         return (
             <Header 
-            style={{paddingTop: StatusBar.currentHeight}}>
+            style={{paddingTop: StatusBar.currentHeight,backgroundColor: '#6200EE'}}>
                 <Left>
                     <Button
                         transparent

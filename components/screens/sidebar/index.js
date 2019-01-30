@@ -74,12 +74,6 @@ const datas = [
 class SideBar extends React.Component {
     constructor(props) {
         super(props)
-        //console.log(this.props)
-        //console.log(this.props.activeItemKey)
-        // this.state = {
-        //     user: null
-        // }
-        // this._getUserToken()
         this.previous_link = ""
         let data_store = []
         this.state = {
@@ -97,23 +91,14 @@ class SideBar extends React.Component {
     }
 
     navigateRoute = (route) => {
-        // change active pages
-        //console.log("Routing to: ", route, "-")
-        // console.log("Acive Route ", this.state.activeRoute)
         this.previous_link = this.state.activeRoute
         this.setState({ activeRoute: route.trim() })
-        //this.setState({ counter: this.state.counter + 1 })
         this.props.navigation.navigate(route)
     }
 
 
     componentDidMount = () => {
-        console.log(this.props.user)
-        // set first page to home page
-        //console.log("Initial route:",this.props.activeItemKey)
-        //console.log(this.props.activeItemKey)
         this.setState({ activeRoute: this.props.activeItemKey.trim() })
-        //console.log("Initial route:", this.state.activeRoute.trim(), "-")
     }
 
     DeepCopy = (data_list) => {
@@ -133,24 +118,9 @@ class SideBar extends React.Component {
         return net_data
     }
     render = () => {
-        console.log(`I am here ${this.props.user}`)
-        //console.log(datas)
-        //console.log("Render called Current Counter is ", this.state.counter)
-
-        //console.log("Render called Current State is ", this.state.activeRoute)
-        //console.log(datas[0].counter = this.state.counter)
-        //console.log(datas)
-        //console.log("RENDER")
-        //console.log("Prev: ", this.previous_link)
-        //console.log("Current: ", this.state.activeRoute)
-
-
-
         if (this.state.previous_link != this.state.activeRoute)
             new_data = this.DeepCopy(datas)
         previous_link = this.state.activeRoute
-        //console.log("New\n",new_data)
-
         return (
 
             <Container>
@@ -159,7 +129,7 @@ class SideBar extends React.Component {
                     style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
                 >
 
-                    <ImageBackground source={drawerCover} style={styles.drawerCover}>
+                    <ImageBackground style={styles.drawerCover}>
                         <Content style={styles.cover_content}>
                             <Image style={styles.profile_pic} source={{uri: this.props.user.photoUrl  ? this.props.user.photoUrl : default_img}} />
                             <Text style={styles.profile_name} >{this.props.user.name ? this.props.user.name : "UNKNOWN" } </Text>
