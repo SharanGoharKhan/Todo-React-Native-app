@@ -25,7 +25,7 @@ export default {
     marginRight: 30,
     marginBottom: 10,
     padding: 5,
-    backgroundColor: 'pink',
+    backgroundColor: '#03dac6',
     borderRadius: 5
   },
   srcollViewContainer: {
