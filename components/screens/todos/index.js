@@ -90,12 +90,11 @@ class Todos extends React.Component {
                         <Tabs style={{ paddingTop: 0 }}>
                             <Tab heading="Create TODO">
                                 <View style={styles.create_todo}>
-                                    <Item regular style={{ width: "100%", marginLeft: 0 }}>
+                                    <Item regular style={{ width: "100%", marginLeft: 0,marginTop:10 }}>
                                         <Input style={{ width: "100%", marginLeft: 0 }} value={this.state.input_name} placeholder='Name' onChangeText={this.HandleNameChg} />
                                     </Item>
                                     <Textarea value={this.state.input_desc} onChangeText={this.HandleDescChg} style={styles.input_desc} rowSpan={5} bordered placeholder="Description" />
-                                    <Button onPress={this.AddTodos} style={{ width: "100%" }} primary><Text> Submit </Text></Button>
-
+                                    <Button full onPress={this.AddTodos} style={{ flex:1, flexGrow:1,flexDirection:"row", textAlign: 'center', height: 30 , borderRadius: 20 , backgroundColor:"#03dac6" }} primary><Text> Submit </Text></Button>
                                 </View>
                             </Tab>
                             <Tab heading="List TODOs">
