@@ -31,6 +31,7 @@ class Profile extends React.Component {
     }
     componentDidMount() {
         this._getUserProfile()
+        console.log(this.props.user)
     }
     async _getUserProfile() {
         const result = await AsyncStorage.getItem('userToken')

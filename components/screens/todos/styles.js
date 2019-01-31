@@ -23,7 +23,8 @@ export default {
        flex:1, 
        flexDirection:"row", 
        justifyContent:"flex-start", 
-       flexWrap:"wrap" 
+       flexWrap:"wrap" ,
+       paddingLeft: 10
     }
     
   };

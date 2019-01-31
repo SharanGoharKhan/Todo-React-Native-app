@@ -36,9 +36,10 @@ class Todos extends React.Component {
             modalVisible: false,
             active_todo_id: 0,
             list_todos: [
-                { name:"Go to uni", desc:"Sir Waseem 1visit karna hai"},
-                { name:"Go to uni2", desc:"Sir Waseem v2isit karna hai"},
-                { name:"Go to uni3", desc:"Sir Waseem v2isit karna hai"},
+                { name:"Start Kit", desc: "Start working on stater kit, brainstorming on starter kit. Define everything regarding it."},
+                { name:"Design Kit", desc:"Material Design. Best user interface with latest design practises."},
+                { name:"Deploy Kit", desc:"Material Design. Best user interface with latest design practises."},
+                { name:"Test Kit", desc:"Material Design. Best user interface with latest design practises."},
             ],
               // EDIT MODAL
             edit_modal_name_input: "",
@@ -85,7 +86,7 @@ class Todos extends React.Component {
         })
     }
     HandleEditNameChg = (val) => {
-        console.log(val)
+        //console.log(val)
         this.setState({
             edit_modal_name_input: val
         })
@@ -95,9 +96,26 @@ class Todos extends React.Component {
             edit_modal_desc_input: val
         })
     }
+
+    
+    DeepCopy = (data_list) => {
+        let net_data = []
+        data_list.forEach(element => {
+            obj = {
+              name: element.name,
+              desc: element.desc
+            }
+            net_data.push(obj)
+
+        });
+
+        return net_data
+    }
+
     UpdateTodo = () =>{
-      
-        items = Object.assign(this.state.list_todos); // Pull the entire items object out. Using object.assign is a good idea for objects.
+        //console.log('updating')
+        //items = Object.assign(this.state.list_todos); // Pull the entire items object out. Using object.assign is a good idea for objects.
+        items = this.DeepCopy(this.state.list_todos)
         items[this.state.active_todo_id].name = this.state.edit_modal_name_input; // update the items object as needed
         items[this.state.active_todo_id].desc = this.state.edit_modal_desc_input; // update the items object as needed
 
@@ -107,11 +125,25 @@ class Todos extends React.Component {
         this.setModalVisible(false)
     }
 
+    DeleteTodo = () => {
+        //console.log("deleting item at index", this.state.active_todo_id)
+        items = this.DeepCopy(this.state.list_todos) // Pull the entire items object out. Using object.assign is a good idea for objects.
+        //items = Object.assign(this.state.list_todos);
+        //console.log(items)
+        
+        items.splice(this.state.active_todo_id, 1)
+        //console.log(this.state.list_todos)
+
+        this.setState({ list_todos: items }); 
+        this.setModalVisible(false)
+
+    }
+
     setModalVisible=(visible,id) =>{
         if(id!==undefined){
             // OPEN THE EDIT MODAL
-            console.log( this.state.list_todos[id] )
-            console.log(id)
+            //console.log( this.state.list_todos[id] )
+            //console.log(id)
             this.setState({
                 edit_modal_name_input: this.state.list_todos[id].name,
                 edit_modal_desc_input: this.state.list_todos[id].desc
@@ -159,7 +191,7 @@ class Todos extends React.Component {
                             <View style={styles.todo_container}>
                                 {   this.state.list_todos.map( (todo, i)=>(
                                    
-                                  <TouchableOpacity key={ i } activeOpacity={0.6} style={{width: "30%", height:180,marginRight: 'auto', marginBottom:10}}  onPress={()=>{this.setModalVisible(true, i)}}>
+                                  <TouchableOpacity key={ i } activeOpacity={0.6} style={{width: "29%", height:180, marginRight:10, marginBottom:10}}  onPress={()=>{this.setModalVisible(true, i)}}>
                                     <Card key={ i } style={{width:"100%", height:"100%", padding:0, margin:0}}>
                                         <CardItem header>
                                         <Text>{todo.name}</Text>
@@ -194,7 +226,7 @@ class Todos extends React.Component {
                         visible={ this.state.modalVisible }
                     >
                         <Text full style={{paddingTop:5,fontSize: 18, backgroundColor:"#6200EE", 
-                        fontWeight:'500', color:"#fff", height: 35}}> Edit TODO </Text>
+                        fontWeight:'500', color:"#fff", height: 35, textAlign:"center"}}> Edit TODO </Text>
                         <View style={{padding:20, alignSelf:"center"}}>
                             <Item regular style={{width:"100%",marginLeft:0}}>
                                 <Input 
@@ -213,7 +245,11 @@ class Todos extends React.Component {
                                 style={{marginBottom:20}}
                                 blurOnSubmit={true}
                                 onSubmitEditing={()=>{Keyboard.dismiss()}} />
-                            <Button full  onPress={this.UpdateTodo} style={{ height:30, borderRadius:20, backgroundColor:"#03dac6", height: 30 }} primary><Text> Update TODO </Text></Button>
+                            <View style={{ flexDirection:"row",justifyContent:"space-around",alignItems :"space-between"}}>
+                                <Button   onPress={this.DeleteTodo} style={{  borderRadius:20, backgroundColor:"#ff1744", height: 30 }} primary><Text> Delete  </Text></Button>                            
+                                <Button   onPress={this.UpdateTodo} style={{  borderRadius:20, backgroundColor:"#03dac6", height: 30 }} primary><Text> Update  </Text></Button>
+                            </View>
+                            
                         </View>
                        
                  
