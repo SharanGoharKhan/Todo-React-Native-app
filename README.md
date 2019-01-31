@@ -16,7 +16,7 @@ expo start
 ```
 
 ## 3. Screenshots
-![Demo]("https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/demo.gif)"
+![Demo](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/demo.gif)
 ## 4. Future work
 
 Currently this app will work with both android and ios but ios has some issues in chat which should be fixed in future work
