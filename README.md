@@ -17,18 +17,18 @@ expo start
 
 ## 3. Screenshots
 
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/login.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/forgot.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/create.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/drawer.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/home.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/chat.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/calendar.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/profile.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/map.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/todo.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/todoList.jpg | width=100)
-![Screenshot](https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/todoDialog.jpg | width=100)
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/login.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/forgot.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/create.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/drawer.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/home.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/chat.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/calendar.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/profile.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/map.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/todo.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/todoList.jpg" width="48">
+<img src="https://github.com/SharanGoharKhan/Todo-React-Native-app/raw/master/screenshots/todoDialog.jpg" width="48">
 
 ## 4. Future work
 
