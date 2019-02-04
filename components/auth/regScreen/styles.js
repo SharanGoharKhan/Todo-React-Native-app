@@ -39,7 +39,8 @@ export default {
       justifyContent: 'flex-end' 
     },
     formContainerValidation: {
-      color:'red'
+      color:'red',
+      fontSize: 13
     },
     formContainerBoxContainer: {
       flexDirection:'column'

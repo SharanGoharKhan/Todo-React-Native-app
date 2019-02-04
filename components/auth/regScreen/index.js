@@ -3,6 +3,7 @@ import { View, Image, ImageBackground, TextInput, KeyboardAvoidingView } from 'r
 import { Text, Button, Icon } from 'native-base';
 import styles from './styles'
 import Validate from 'validate.js'
+import KeyboardShift from '../../utility/KeyboardShift'
 
 const username = {
     presence: true,
@@ -74,7 +75,9 @@ class RegisterScreen extends React.Component {
                                 <Text style={styles.logoContainerHeadline}>Create Account</Text>
                             </View>
                         </View>
-                        <KeyboardAvoidingView style={{ flex: 1,marginTop:30 }} behavior='padding'>
+                        <View style={{ flex: 1, marginTop:30 }} >
+
+                        <KeyboardShift >
                             <View style={{ flex: 1 }} >
                                 <View style={styles.formContainer}>
                                     <View style={styles.formContainerUsernameBox}>
@@ -128,7 +131,9 @@ class RegisterScreen extends React.Component {
                                     <View style={{ flex: 1 }} />
                                 </View>
                             </View>
-                        </KeyboardAvoidingView>
+                        </KeyboardShift>
+                        </View>
+
                     </View>
                 </View>
             </ImageBackground>

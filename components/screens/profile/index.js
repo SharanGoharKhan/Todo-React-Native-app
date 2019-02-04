@@ -17,6 +17,9 @@ import { updateProfile } from '../../../store/actions/auth/login'
 import styles from "./styles";
 import { validate } from 'validate.js'
 
+import KeyboardShift from '../../utility/KeyboardShift'
+
+
 class Profile extends React.Component {
     constructor(props) {
         super(props)
@@ -72,6 +75,7 @@ class Profile extends React.Component {
         let width = Dimensions.get('window').width
         let height =  Dimensions.get('window').height
         return (
+            <KeyboardShift>
             <Container style={styles.container}>
                 <HeaderView
                     title='Profile'
@@ -158,6 +162,7 @@ class Profile extends React.Component {
                  
                 </Content>
             </Container >
+            </KeyboardShift>
         )
     }
 }

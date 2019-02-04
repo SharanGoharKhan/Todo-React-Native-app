@@ -7,6 +7,8 @@ import Validate from 'validate.js'
 import { ValidateLogin } from '../../../store/actions/auth/login'
 import GoogleSignIn from './googleAuth'
 
+import KeyboardShift from '../../utility/KeyboardShift'
+
 const constraints = {
   username,
   password
@@ -90,6 +92,7 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
+    <KeyboardShift>
       <ImageBackground style={styles.ImageBackground}>
         <View style={styles.ScreenContainer}>
           <View style={styles.container}>
@@ -161,6 +164,7 @@ class LoginScreen extends React.Component {
           </View>
         </View>
       </ImageBackground>
+      </KeyboardShift>
     );
   }
 }
